@@ -4,26 +4,34 @@ docker-compose
 
 ### Local Aquarium setup instructions
 
-1) clone Aquarium
+1) Clone Aquarium
 https://github.com/klavinslab/aquarium
 
 2) Remove docker/db folder
 
-3) place `dump.sql` in /docker/mysql_init/
+3) Place `dump.sql` in /docker/mysql_init/
+* in Dropbox->bio-circuit->crucible
 
 4) `docker-compose up --build`
 
 ### Terrarium setup instructions
-1) Create a python virtual environment
+
+1) Clone Terrarium demo scripts https://github.com/jvrana/TerrariumDemo
+
+2) In the makefile, replace username and password with credentials in aq-login.txt (in Dropbox->bio-circuit->crucible)
+
+3) Create a python virtual environment
 `python3 -m venv terrarium-env`
 
-2) Activate environment and install Terrarium (and compatible version of Trident)
+4) Activate environment and install Terrarium (and compatible version of Trident)
 ```
 source terrarium-env/bin/activate
 pip install terrarium-capp==0.1.5 pydent==0.1.5a3
 ```
 
-3) `deactivate` to leave virtual env
+5) `make example1` or `make example2` (at least one should work)
+
+6) `deactivate` to leave virtual env
 
 ### Scripts for pulling data from Aquarium database
 1) Make sure you are not in terrarium-env, then pip install pydent (should be pydent-0.0.35)
