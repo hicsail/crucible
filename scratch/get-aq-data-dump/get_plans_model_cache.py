@@ -24,18 +24,18 @@ if __name__ == '__main__':
     cache_sess.browser.update_cache(plans)
 
     # get all Plans from the cache, and request dependents "operations" and its "field_values" dependents
-    sess.browser.get("Plan", {"operations": {"field_values"}})
+    cache_sess.browser.get("Plan", {"operations": {"field_values"}})
 
     # and so on..
-    sess.browser.get("Wire", {"source", "destination"})
-    sess.browser.get("FieldValue", {"allowable_field_type": "field_type"})
-    sess.browser.get("Operation", "operation_type")
+    cache_sess.browser.get("Wire", {"source", "destination"})
+    cache_sess.browser.get("FieldValue", {"allowable_field_type": "field_type"})
+    cache_sess.browser.get("Operation", "operation_type")
         
-    sess.browser.model_cache
+    cache_sess.browser.model_cache
 
     with open('all_plans_with_children.json', 'w+') as f:
         f.write('[')
-        for plan_id, plan_obj in tqdm(sess.browser.model_cache['Plan'].items()):
+        for plan_id, plan_obj in tqdm(cache_sess.browser.model_cache['Plan'].items()):
             f.write(prettyprint(plan_obj._get_data()))
             f.write(',')
         f.write(']')
