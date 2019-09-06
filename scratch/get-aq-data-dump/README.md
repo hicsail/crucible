@@ -9,8 +9,7 @@ https://github.com/klavinslab/aquarium
 
 2) Remove docker/db folder
 
-3) Place `dump.sql` in /docker/mysql_init/
-* in Dropbox->bio-circuit->crucible
+3) Replace the `dump.sql` in /docker/mysql_init/ with the one in Dropbox->bio-circuit->crucible
 
 4) `docker-compose up --build`
 
@@ -20,16 +19,19 @@ https://github.com/klavinslab/aquarium
 
 2) In the makefile, replace username and password with credentials in aq-login.txt (in Dropbox->bio-circuit->crucible)
 
-3) Create a python virtual environment
+3) Create a python virtual environment in the root directory of Terrarium demo scripts
 `python3 -m venv terrarium-env`
 
 4) Activate environment and install Terrarium (and compatible version of Trident)
 ```
 source terrarium-env/bin/activate
-pip install terrarium-capp==0.1.5 pydent==0.1.5a3
+pip install terrarium-capp==0.1.5 pydent==0.1.5a1
 ```
 
-5) `make example1` or `make example2` (at least one should work)
+5) `make example2`
+
+6) Check that the demo worked by going to the URL displayed at the end of the script output (beginning with 0.0.0.0) and
+log in with the credentials in aq-login.txt
 
 6) `deactivate` to leave virtual env
 
